@@ -68,7 +68,9 @@
     (org-trello :toggle org-enable-trello-support)
     (org-sticky-header :toggle org-enable-sticky-header)
     (verb :toggle org-enable-verb-support)
-    (org-roam :toggle org-enable-roam-support)
+    (org-roam :toggle org-enable-roam-support
+              :location (recipe :fetcher github :repo "org-roam/org-roam" :branch "v2")
+              )
     (valign :toggle org-enable-valign)
     (org-appear :toggle org-enable-appear-support)
     (org-roam-server :require org-roam :toggle org-enable-roam-server)
@@ -935,13 +937,13 @@ Headline^^            Visit entry^^               Filter^^                    Da
         "aordt" 'org-roam-dailies-find-today
         "aordT" 'org-roam-dailies-find-tomorrow
         "aordd" 'org-roam-dailies-find-date
-        "aorf" 'org-roam-find-file
+        "aorf" 'org-roam-node-find
         "aorg" 'org-roam-graph
-        "aori" 'org-roam-insert
+        "aori" 'org-roam-node-insert
         "aorI" 'org-roam-insert-immediate
-        "aorl" 'org-roam-buffer-toggle-display
+        "aorl" 'org-roam-buffer-toggle
         "aorta" 'org-roam-tag-add
-        "aortd" 'org-roam-tag-delete
+        "aortd" 'org-roam-tag-remove
         "aora" 'org-roam-alias-add)
 
       (spacemacs/declare-prefix-for-mode 'org-mode "mr" "org-roam")
@@ -959,7 +961,7 @@ Headline^^            Visit entry^^               Filter^^                    Da
         "rI" 'org-roam-insert-immediate
         "rl" 'org-roam-buffer-toggle-display
         "rta" 'org-roam-tag-add
-        "rtd" 'org-roam-tag-delete
+        "rtd" 'org-roam-tag-remove
         "ra" 'org-roam-alias-add))
     :config
     (progn
